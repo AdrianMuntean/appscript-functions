@@ -13,9 +13,6 @@ const nameIndex = 1;
 const placesStartIndex = 4;
 
 function processRow (e) {
-  const emailQuotaRemaining = MailApp.getRemainingDailyQuota ();
-  Logger.log ('Remaining email quota: ' + emailQuotaRemaining);
-  Logger.log (typeof emailQuotaRemaining);
   const data = wsData.getSheetValues (2, 1, 1000, 21);
   for (let i = 0; i < data.length; i++) {
     const row = data[i];
@@ -34,7 +31,6 @@ function processRow (e) {
 }
 
 function updatePossibleFields (row, index) {
-  Logger.log (`Updating data on index ${index}`);
   const places = [];
   const data = optionsData.getSheetValues (1, 1, 844, 1);
   const valueToIndex = {};
@@ -47,7 +43,7 @@ function updatePossibleFields (row, index) {
     if (row[i]) {
       for (const option of places) {
         if (option === row[i]) {
-          Logger.log (`Removing place ${option} as it was already booked`);
+          Logger.log (`Removing ${option} as it was already selected`);
           optionsData.getRange (1 + valueToIndex[option], 1).setValue ('');
         }
       }
