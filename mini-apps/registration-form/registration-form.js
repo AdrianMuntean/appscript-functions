@@ -17,7 +17,7 @@ function processRow(e) {
       continue;
     }
 
-    updatePossibleFields(row, i);
+    updatePossibleFields(row);
 
     const dv = wsData.getRange(i + 2, processedIndex + 1).getValue();
     if (!dv) {
@@ -27,7 +27,7 @@ function processRow(e) {
   }
 }
 
-function updatePossibleFields(row, index) {
+function updatePossibleFields(row) {
   const places = [];
   const data = optionsData.getSheetValues(1, 1, 844, 1);
   const valueToIndex = {};

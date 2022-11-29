@@ -1,8 +1,8 @@
-function sendUserEmail (email) {
-  MailApp.sendEmail ({
+function sendUserEmail(email) {
+  MailApp.sendEmail({
     to: email,
     subject: 'Hello from appscript',
     htmlBody: `<p>${email}</p> <br/><br/>This is the body`,
-    replyTo: 'another@email.com',
+    replyTo: 'another@email.com'
   });
 }
